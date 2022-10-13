@@ -5,11 +5,10 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - npm install
   pre_build:
     commands:
-      - npm install -g npx
       - npm ci
+      - npx --version
       - echo Build started on `date`
   build:
     commands:
