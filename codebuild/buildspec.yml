@@ -8,6 +8,8 @@ phases:
       - npm install
   pre_build:
     commands:
+      - npm install -g npx
+      - npm ci
       - echo Build started on `date`
   build:
     commands:
