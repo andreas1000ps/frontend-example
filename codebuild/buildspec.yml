@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - npm install
+      - npm install -g npx
+  pre_build:
+    commands:
+      - echo Build started on `date`
+  build:
+    commands:
+      - npx nuxi generate
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  base-directory: ./.output/public
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - './node_modules/**/*'
